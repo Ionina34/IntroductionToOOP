@@ -29,10 +29,11 @@ public:
 	{
 		return sqrt(this->x*this->x  + this->y *this->y);
 	}*/
-	double distance(const Point& W, const Point& T)
+
+	/*double distance(const Point& W, const Point& T)
 	{
 		return sqrt((W.get_x() - T.get_x()) * (W.get_x() - T.get_x()) + (W.get_y() - T.get_y()) * (W.get_y() - T.get_y()));
-	}
+	}*/
 
 
 	//                       Constructors:
@@ -155,9 +156,10 @@ void main()
 	cout << "Координаты введеной точки: "; cin >> x >> y;
 	W.set_x(x);
 	W.set_y(y);
-	cout << "Расстояние до точки: " << distance(W, T) << endl;
+	//cout << "Расстояние до точки: " << distance(W,T) << endl;
 	cout << "Расстояние между точками: " << distance(W, T)<<endl;
 }
+
 double distance(const Point& W, const Point& T)
 {
 	return sqrt((W.get_x() - T.get_x()) * (W.get_x() - T.get_x()) + (W.get_y() - T.get_y()) * (W.get_y() - T.get_y()));
