@@ -7,13 +7,22 @@ class Fraction
 	int z; //Знаменатель 
 public:
 	int get_h()const
-	{ return h; }
+	{
+		return h;
+	}
 	int get_z()const
-	{ return z; }
+	{
+		return z;
+	}
 	void set_h(int h)
-	{ this->h = h; }
+	{
+		this->h = h;
+	}
 	void set_z(int z)
-	{ this->z = z; }
+	{
+		this->z = z;
+	}
+
 	//           Constructors
 	Fraction(int h = 0, int z = 0)
 	{
@@ -21,8 +30,19 @@ public:
 		this->z = z;
 		//cout << "Constructor:\t" << this << endl;
 	}
+	Fraction(const Fraction& other)
+	{
+		this->h = other.h;
+		this->z = other.z;
+		//cout << "CopyConstructor:" << this << endl;
+	}
+	~Fraction()
+	{
+		//cout << "Destructor:\t" << this << endl;
+	}
 
-	//          Operator
+	//                                    Operator
+
 	Fraction& operator=(const Fraction& other)
 	{
 		this->h = other.h;
@@ -30,28 +50,55 @@ public:
 		//cout << "CopyAssignment:\t" << this << endl;
 		return *this;
 	}
-	Fraction& operator +=( Fraction& other)
+	Fraction& operator+=(Fraction& other)
 	{
 		if (this->z != other.z)
 		{
 			this->h = (this->h * other.z);
-			other.h =(other.h * this->z);
+			other.h = (other.h * this->z);
 			this->h += other.h;
 			this->z *= other.z;
 		}
+		else
+		{
+			this->h += other.h;
+			this->z = other.z;
+		}
+		return *this;
+	}
+	Fraction& operator-=(Fraction& other)
+	{
+		if (this->z != other.z)
+		{
+			this->h = (this->h * other.z);
+			other.h = (other.h * this->z);
+			this->h -= other.h;
+			this->z *= other.z;
+		}
+		else
+		{
+			this->h -= other.h;
+			this->z = other.z;
+		}
+		return *this;
+	}
+	Fraction& operator*=(const Fraction& other)
+	{
+		this->h *= other.h;
+		this->z *= other.z;
 		return *this;
 	}
 
-	//          Increment/Decrement
+	//                                 Increment/Decrement
 	Fraction& operator++()
 	{
-		h+=z;
+		h += z;
 		return *this;
 	}
 	Fraction& operator++(int)
 	{
 		Fraction old;
-		h+=z;
+		h += z;
 		return old;
 	}
 	Fraction& operator--()
@@ -66,10 +113,10 @@ public:
 		return old;
 	}
 
-	//         Methods
+	//                                       Methods
 	void print()const
 	{
-		cout << h << "/" <<z << endl;
+		cout <<  h << "/" << z << endl;
 	}
 };
 Fraction operator+(const Fraction& left, const Fraction& right)
@@ -87,7 +134,7 @@ Fraction operator+(const Fraction& left, const Fraction& right)
 		result.set_z(left.get_z());
 	}
 }
-Fraction operator-(const Fraction& left,const Fraction& right)
+Fraction operator-(const Fraction& left, const Fraction& right)
 {
 	Fraction result;
 	if (left.get_z() != right.get_z())
@@ -118,18 +165,21 @@ Fraction operator/(const Fraction& left, const Fraction& right)
 }
 ostream& operator<<(ostream& os, const Fraction& obj)
 {
-	os << obj.get_h() << "/" << obj.get_z();
+	os << "Простая дробь: " << obj.get_h() << "/" << obj.get_z();
 	return os;
 }
 
 void main()
 {
+	setlocale(LC_ALL, "Rus");
 	Fraction A(2, 3);
-	A.print();
 	Fraction B(3, 4);
+	A.print();
 	B.print();
-	A += B;
-cout << A << endl;
-	//cout << B<< endl;
-	
+
+	(A + B).print();
+	(A - B).print();
+	(A * B).print();
+	(A / B).print();
+
 }
