@@ -1,10 +1,10 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 
 class Fraction
 {
-	int h; //Числитель
-	int z; //Знаменатель 
+	int h; //Р§РёСЃР»РёС‚РµР»СЊ
+	int z; //Р—РЅР°РјРµРЅР°С‚РµР»СЊ 
 public:
 	int get_h()const
 	{
@@ -165,7 +165,7 @@ Fraction operator/(const Fraction& left, const Fraction& right)
 }
 ostream& operator<<(ostream& os, const Fraction& obj)
 {
-	os << "Простая дробь: " << obj.get_h() << "/" << obj.get_z();
+	os << "РџСЂРѕСЃС‚Р°СЏ РґСЂРѕР±СЊ: " << obj.get_h() << "/" << obj.get_z();
 	return os;
 }
 
