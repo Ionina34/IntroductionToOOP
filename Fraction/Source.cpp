@@ -23,11 +23,32 @@ public:
 		this->z = z;
 	}
 
-	//           Constructors
+	//                                  Constructors
 	Fraction(int h = 0, int z = 0)
 	{
 		this->h = h;
 		this->z = z;
+
+		/*int NOD;
+		for (int i = 0; i < h; i++)
+		{
+			if (h % i == 0 && z % i == 0)
+			{
+				NOD = i;
+			}
+		}
+
+		int NOK;
+		for (int i = 0; i < h * z; i++)
+		{
+			if (i % h == 0 && i % z == 0)
+			{
+				NOK = i;
+				break;
+			}
+			else continue;
+		}*/
+		
 		//cout << "Constructor:\t" << this << endl;
 	}
 	Fraction(const Fraction& other)
@@ -126,13 +147,13 @@ Fraction operator+(const Fraction& left, const Fraction& right)
 	{
 		result.set_h(left.get_h() * right.get_z() + right.get_h() * left.get_z());
 		result.set_z(left.get_z() * right.get_z());
-		return result;
 	}
 	else
 	{
 		result.set_h(left.get_h() + right.get_h());
 		result.set_z(left.get_z());
 	}
+	return result;
 }
 Fraction operator-(const Fraction& left, const Fraction& right)
 {
@@ -173,7 +194,7 @@ void main()
 {
 	setlocale(LC_ALL, "Rus");
 	Fraction A(2, 3);
-	Fraction B(3, 4);
+	Fraction B(3, 0);
 	A.print();
 	B.print();
 
