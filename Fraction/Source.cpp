@@ -118,7 +118,7 @@ public:
 	}
 	Fraction& operator++(int)
 	{
-		Fraction old;
+		Fraction old=*this;
 		h += z;
 		return old;
 	}
@@ -129,7 +129,7 @@ public:
 	}
 	Fraction& operator--(int)
 	{
-		Fraction old;
+		Fraction old = *this;
 		h -= z;
 		return old;
 	}
