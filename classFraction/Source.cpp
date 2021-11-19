@@ -74,6 +74,62 @@ public:
 		cout << "Destructor:\t" << this << endl;
 	}
 
+	//                           Increment/Decrement
+	Fraction operator++()
+	{
+		if (integer)
+		{
+			integer++;
+		}
+		else
+		{
+			numerator += denominator;
+			integer = numerator / denominator;
+			numerator %= denominator;
+		}
+		return *this;
+	}
+	Fraction operator++(int)
+	{
+		Fraction old;
+		if (integer)
+		{
+		  integer++;
+		}
+		else
+		{
+			numerator += denominator;
+			integer = numerator / denominator;
+			numerator %= denominator;
+		}
+		return old;
+	}
+	Fraction operator--()
+	{
+		if (integer)
+		{
+			integer--;
+		}
+		else
+		{
+			numerator -= denominator;
+		}
+		return *this;
+	}
+	Fraction operator--(int)
+	{
+		Fraction old;
+		if (integer)
+		{
+			integer--;
+		}
+		else
+		{
+			numerator -= denominator;
+		}
+		return old;
+	}
+
 	//                            Operator:
 	Fraction& operator=(const Fraction& other)
 	{
@@ -284,6 +340,7 @@ void main()
 	/*C = A / B;
 	C.print();*/
 
-	A /= B;
+	A-- ;
 	A.print();
+	
 }

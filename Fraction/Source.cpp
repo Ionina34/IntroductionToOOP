@@ -198,9 +198,10 @@ void main()
 	A.print();
 	B.print();
 
-	(A + B).print();
+	/*(A + B).print();
 	(A - B).print();
 	(A * B).print();
-	(A / B).print();
-
+	(A / B).print();*/
+	A++;
+	A.print();
 }
