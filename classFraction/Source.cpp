@@ -381,6 +381,88 @@ istream& operator>>(istream& is,  Fraction& obj)
 	return is;
 }
 
+bool operator==(Fraction left,  Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	if (left.get_denominator() != right.get_denominator())
+	{
+		int left_numerator = left.get_numerator() * right.get_denominator();
+		int right_numerator = right.get_numerator() * left.get_denominator();
+		int denominator = left.get_denominator() * right.get_denominator();
+		if (left_numerator == right_numerator)return true;
+		else return false;
+	}
+	else
+	{
+		if (left.get_numerator() == right.get_numerator())return true;
+		else return false;
+	}
+}
+bool operator!=(Fraction left, Fraction right)
+{
+	return !(left == right);
+}
+bool operator>(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	if (left.get_denominator() != right.get_denominator())
+	{
+		int left_numerator = left.get_numerator() * right.get_denominator();
+		int right_numerator = right.get_numerator() * left.get_denominator();
+		int denominator = left.get_denominator() * right.get_denominator();
+		if ( left_numerator>right_numerator)return true;
+		else return false;
+	}
+	else
+	{
+		if (left.get_numerator() > right.get_numerator())return true;
+		else return false;
+	}
+}
+bool operator<(Fraction left, Fraction right)
+{
+	/*left.to_improper();
+	right.to_improper();
+	if (left.get_denominator() != right.get_denominator())
+	{
+		int left_numerator = left.get_numerator() * right.get_denominator();
+		int right_numerator = right.get_numerator() * left.get_denominator();
+		int denominator = left.get_denominator() * right.get_denominator();
+		if (left.get_numerator() < right.get_numerator())return true;
+		else return false;
+	}
+	else
+	{
+		if (left.get_numerator() < right.get_numerator())return true;
+		else return false;
+	}*/
+	return !(left > right);
+}
+bool operator>=(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	if (left.get_denominator() != right.get_denominator())
+	{
+		int left_numerator = left.get_numerator() * right.get_denominator();
+		int right_numerator = right.get_numerator() * left.get_denominator();
+		int denominator = left.get_denominator() * right.get_denominator();
+		if (left_numerator >= right_numerator)return true;
+		else return false;
+	}
+	else
+	{
+		if (left.get_numerator() >= right.get_numerator())return true;
+		else return false;
+	}
+}
+bool operator<=(Fraction left, Fraction right)
+{
+	return !(left >= right);
+}
+
 //#define CONSTRACTORS_CHECK
 //#define ARITHMETICAL_OPERATORS_CHECK
 
@@ -420,7 +502,13 @@ void main()
 	cout << B << endl;
 #endif // ARITHMETICAL_OPERATORS_CHECK
 
-	Fraction A;// (2, 3, 4);
-	cout << "¬ведите простую дробь: "; cin >> A;
-	cout << A << endl;
+	//Fraction A;// (2, 3, 4);
+	//cout << "¬ведите простую дробь: "; cin >> A;
+	//cout << A << endl;
+
+	Fraction A(0,8,3);
+	Fraction B(0,9,3);
+	if (A <=B)	cout << B << endl;
+	else cout <<"No" << endl;
+
 }
