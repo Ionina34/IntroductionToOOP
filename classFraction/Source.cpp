@@ -57,12 +57,12 @@ public:
 		this->integer =(int)chislo;
 		double a = chislo - (int)chislo;
 		int i = 0;
-		while (a > 0)
+		do
 		{
 			a =a*10 - (int)(a*10);
 			i++;
-		}
-		this->numerator =(chislo - (int)chislo) * pow(10, i);
+		}while (a > 0);
+		this->numerator =(chislo- (int)chislo) * pow(10, i);
 		this->denominator = pow(10, i);
 		this->reduce();
 	}
