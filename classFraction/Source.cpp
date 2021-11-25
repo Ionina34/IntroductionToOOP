@@ -52,7 +52,8 @@ public:
 		this->denominator = 1;
 		cout << "SingleArgConstractor:\t" << this << endl;
 	}
-	Fraction(double chislo)
+	//Моё решение Fraction(double decimal)
+	/*Fraction(double chislo)
 	{
 		this->integer =(int)chislo;
 		double a = chislo - (int)chislo;
@@ -62,9 +63,18 @@ public:
 			a =a*10 - (int)(a*10);
 			i++;
 		}while (a > 0);
-		this->numerator =(chislo- (int)chislo) * pow(10, i);
+		this->numerator = (chislo- (int)chislo) * pow(10, i);
 		this->denominator = pow(10, i);
 		this->reduce();
+	}*/
+	Fraction(double decimal)
+	{
+		//decimal += 1e-10;//1*10^(-10)
+		this->integer = decimal;
+		decimal -= integer;
+		this->denominator = 1e+9;//1*10^9
+		numerator=(decimal+1e-10) * denominator;
+		reduce();
 	}
 	Fraction(int numerator, int denominator)
 	{
@@ -635,6 +645,6 @@ void main()
 	cout << Fraction(840, 3600).reduce() << endl;
 #endif // REDUCE_CHECK
 
-	Fraction A = 2.75;
+	Fraction A = 2.76;
 	cout << A << endl;
 }
