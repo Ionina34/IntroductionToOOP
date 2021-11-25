@@ -1,15 +1,15 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 
 class Fraction;
-Fraction operator*(Fraction left, Fraction right);//прототип функции *
-//Прототип функции - это объявление функции 
+Fraction operator*(Fraction left, Fraction right);//РїСЂРѕС‚РѕС‚РёРї С„СѓРЅРєС†РёРё *
+//РџСЂРѕС‚РѕС‚РёРї С„СѓРЅРєС†РёРё - СЌС‚Рѕ РѕР±СЉСЏРІР»РµРЅРёРµ С„СѓРЅРєС†РёРё 
 
 class Fraction
 {
-	int integer; //Целая часть
-	int numerator;//Числитель
-	int denominator;//Знаменатель
+	int integer; //Р¦РµР»Р°СЏ С‡Р°СЃС‚СЊ
+	int numerator;//Р§РёСЃР»РёС‚РµР»СЊ
+	int denominator;//Р—РЅР°РјРµРЅР°С‚РµР»СЊ
 public:
 	int get_integer()const
 	{
@@ -269,7 +269,7 @@ public:
 	Fraction& reduce()
 	{
 		int more, less;
-		int rest; //Остаток от деления 
+		int rest; //РћСЃС‚Р°С‚РѕРє РѕС‚ РґРµР»РµРЅРёСЏ 
 		if (numerator > denominator)
 		{
 			more = numerator;
@@ -287,7 +287,7 @@ public:
 			less = rest;
 		} while (rest);
 		int GCD = more;
-		//GCD -Greatest Common Divisor (Наибольший общий делитель)
+		//GCD -Greatest Common Divisor (РќР°РёР±РѕР»СЊС€РёР№ РѕР±С‰РёР№ РґРµР»РёС‚РµР»СЊ)
 		numerator /= GCD;
 		denominator /= GCD;
 		return *this;
@@ -408,16 +408,16 @@ istream& operator>>(istream& is,  Fraction& obj)
 	//1/2
 	//2(3,4)
 	//2 (3/4)
-	char delimiters[] = "() /"; //Разделители, по по которым мы будем делить строку
-	char* number[5];  //В этом массиве будут храниться указатели на числа в buffer
-	int n = 0;        //Счётчик прочитанных из строки чесел
+	char delimiters[] = "() /"; //Р Р°Р·РґРµР»РёС‚РµР»Рё, РїРѕ РїРѕ РєРѕС‚РѕСЂС‹Рј РјС‹ Р±СѓРґРµРј РґРµР»РёС‚СЊ СЃС‚СЂРѕРєСѓ
+	char* number[5];  //Р’ СЌС‚РѕРј РјР°СЃСЃРёРІРµ Р±СѓРґСѓС‚ С…СЂР°РЅРёС‚СЊСЃСЏ СѓРєР°Р·Р°С‚РµР»Рё РЅР° С‡РёСЃР»Р° РІ buffer
+	int n = 0;        //РЎС‡С‘С‚С‡РёРє РїСЂРѕС‡РёС‚Р°РЅРЅС‹С… РёР· СЃС‚СЂРѕРєРё С‡РµСЃРµР»
 	for (char* pch = strtok(buffer, delimiters); pch; pch = strtok(NULL, delimiters))
 	{
 		number[n++] = pch;
 	}
 	switch (n)
 	{
-		//int atoi(char* str) - преобразует строку в целое число
+		//int atoi(char* str) - РїСЂРµРѕР±СЂР°Р·СѓРµС‚ СЃС‚СЂРѕРєСѓ РІ С†РµР»РѕРµ С‡РёСЃР»Рѕ
 	case 1:obj.set_integer(atoi(number[0])); break;
 	case 2:
 		obj.set_numerator(atoi(number[0]));
@@ -580,7 +580,7 @@ void main()
 
 #ifdef ISTREAM_OPERATOR_CHECK
 	Fraction A;// (2, 3, 4);
-	cout << "Введите простую дробь: "; cin >> A;
+	cout << "Р’РІРµРґРёС‚Рµ РїСЂРѕСЃС‚СѓСЋ РґСЂРѕР±СЊ: "; cin >> A;
 	cout << A << endl;
 #endif // ISTREAM_OPERATOR_CHECK
 
@@ -594,11 +594,11 @@ void main()
 
 #ifdef TYPE_CONVERSIONS_BASICS
 	int a = a;       //No conversion
-	double b = 3;    //Conversion from less to more(от меньшего к большему)
-	int c = b;       //Conversion from more to less without data loss(без потери данных)
-	int d = 8.3;     //Conversion from more to less with data loss(с потерей данных)
+	double b = 3;    //Conversion from less to more(РѕС‚ РјРµРЅСЊС€РµРіРѕ Рє Р±РѕР»СЊС€РµРјСѓ)
+	int c = b;       //Conversion from more to less without data loss(Р±РµР· РїРѕС‚РµСЂРё РґР°РЅРЅС‹С…)
+	int d = 8.3;     //Conversion from more to less with data loss(СЃ РїРѕС‚РµСЂРµР№ РґР°РЅРЅС‹С…)
 	int e = a + b;   //2 Conversions in both directions
-					 //2 преобразования в обоих направлениях  
+					 //2 РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ РІ РѕР±РѕРёС… РЅР°РїСЂР°РІР»РµРЅРёСЏС…  
 #endif // TYPE_CONVERSIONS_BASICS
 
 #ifdef CONVERSION_FROM_OTHER_TYPES_TO_CLASS
@@ -611,8 +611,8 @@ void main()
 	B = Fraction(8);               //operator=(CopyAssignment)
 	cout << "\n----------------------------------------------\n";
 	cout << B << endl;
-	//Fraction C = 12;             //explicit-конструктор не возможно вызвать так
-	Fraction C(12);                //его можно вызвать только так  
+	//Fraction C = 12;             //explicit-РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РЅРµ РІРѕР·РјРѕР¶РЅРѕ РІС‹Р·РІР°С‚СЊ С‚Р°Рє
+	Fraction C(12);                //РµРіРѕ РјРѕР¶РЅРѕ РІС‹Р·РІР°С‚СЊ С‚РѕР»СЊРєРѕ С‚Р°Рє  
 #endif // CONVERSION_FROM_OTHER_TYPES_TO_CLASS
 
 #ifdef CONVERSION_FROM_CLASS_TO_OTHER_TYPES
@@ -620,10 +620,10 @@ void main()
 	cout << A << endl;
 	int a = (int)A;
 	cout << a << endl;
-	//double b = A;  без explicit
+	//double b = A;  Р±РµР· explicit
 	double b = (double)A;
-	//Fraction - простая дробь
-	//double - десятичная дробь
+	//Fraction - РїСЂРѕСЃС‚Р°СЏ РґСЂРѕР±СЊ
+	//double - РґРµСЃСЏС‚РёС‡РЅР°СЏ РґСЂРѕР±СЊ
 	cout << b << endl;
 	int c = int(A);
 	cout << c << endl;
