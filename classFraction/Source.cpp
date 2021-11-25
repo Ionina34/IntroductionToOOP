@@ -52,6 +52,20 @@ public:
 		this->denominator = 1;
 		cout << "SingleArgConstractor:\t" << this << endl;
 	}
+	Fraction(double chislo)
+	{
+		this->integer =(int)chislo;
+		double a = chislo - (int)chislo;
+		int i = 0;
+		while (a > 0)
+		{
+			a =a*10 - (int)(a*10);
+			i++;
+		}
+		this->numerator =(chislo - (int)chislo) * pow(10, i);
+		this->denominator = pow(10, i);
+		this->reduce();
+	}
 	Fraction(int numerator, int denominator)
 	{
 		this->integer = 0;
@@ -526,6 +540,7 @@ bool operator<=(const Fraction left,const Fraction right)
 //#define TYPE_CONVERSIONS_BASICS
 //#define CONVERSION_FROM_OTHER_TYPES_TO_CLASS
 //#define CONVERSION_FROM_CLASS_TO_OTHER_TYPES
+//#define REDUCE_CHECK
 
 void main()
 {
@@ -614,7 +629,12 @@ void main()
 	cout << c << endl;
 #endif // CONVERSION_FROM_CLASS_TO_OTHER_TYPES
 
+#ifdef REDUCE_CHECK
 	Fraction A(2, 5, 10);
 	cout << A.reduce() << endl;
 	cout << Fraction(840, 3600).reduce() << endl;
+#endif // REDUCE_CHECK
+
+	Fraction A = 2.75;
+	cout << A << endl;
 }
