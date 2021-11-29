@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 using std::cout;
 using std::cin;
@@ -9,8 +9,8 @@ String operator+(const String left, const String& right);
 
 class String
 {
-	int size;      //Ðàçìåð ñòðîêè â Áàéòàõ
-	char* str;     //Óêàçàòåëü íà ñòðîêó â äèíàìè÷åñêîé ïàìÿòè
+	int size;      //Ð Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚Ñ€Ð¾ÐºÐ¸ Ð² Ð‘Ð°Ð¹Ñ‚Ð°Ñ…
+	char* str;     //Ð£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð² Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸
 public:
 	int get_size()const
 	{
@@ -34,7 +34,7 @@ public:
 	}
 	String(const char* str)
 	{
-		this->size = strlen(str) + 1;//Ñ÷èòàåì ðàçìåð ñòðîêè
+		this->size = strlen(str) + 1;//Ð¡Ñ‡Ð¸Ñ‚Ð°ÐµÐ¼ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚Ñ€Ð¾ÐºÐ¸
 		this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
@@ -146,9 +146,9 @@ void main()
 
 	String str1 = "Hello";
 	String str2 = "World";
-	String str3 = str1 + str2;  //Íåÿâíî âûçûâàåì îïåðàòîð + 
+	String str3 = str1 + str2;  //ÐÐµÑÐ²Ð½Ð¾ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ + 
 	cout << str3 << endl;
-	cout << operator+(str1, str2) << endl;  //ßâíûé âûçîâ îïåðàòîðà+
+	cout << operator+(str1, str2) << endl;  //Ð¯Ð²Ð½Ñ‹Ð¹ Ð²Ñ‹Ð·Ð¾Ð² Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð°+
 	str1 += str2;
 	cout << str1 << endl;
 }
