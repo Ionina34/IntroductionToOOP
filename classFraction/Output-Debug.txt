@@ -1,0 +1,14 @@
+﻿'classFraction.exe' (Win32): Loaded 'F:\ДАША)))\IntroductionToOOP\Debug\classFraction.exe'. Symbols loaded.
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. 
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. 
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. 
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcp140d.dll'. 
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. 
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. 
+The thread 0x2e7c has exited with code 0 (0x0).
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel.appcore.dll'. 
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcrt.dll'. 
+'classFraction.exe' (Win32): Loaded 'C:\Windows\SysWOW64\rpcrt4.dll'. 
+The thread 0x1990 has exited with code 0 (0x0).
+The thread 0x3b44 has exited with code 0 (0x0).
+The program '[1232] classFraction.exe' has exited with code 0 (0x0).
