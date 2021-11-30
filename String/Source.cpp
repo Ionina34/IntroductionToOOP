@@ -135,7 +135,7 @@ ostream& operator<<(ostream& os, const String& obj)
 	return os << obj.get_str();
 }
 
-#define CONSTRACTORS_CHECK
+//#define CONSTRACTORS_CHECK
 //#define OPERATOR_PLUS_CHECK
 //#define CONSTRACTOR_CALLING
 
