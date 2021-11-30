@@ -68,7 +68,7 @@ public:
 		cout << "CopyConstractor:" << this << endl;
 		return *this;
 	}
-	String& operator+=( String& other)
+	String& operator+=(const String& other)
 	{
 		/*for (int i = 0; i < other.size; i++)
 		{
