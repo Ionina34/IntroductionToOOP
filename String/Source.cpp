@@ -26,31 +26,25 @@ public:
 	}
 
 	//                              Constractor
-	explicit String(int size = 80)
+	explicit String(int size = 80):size(size),str(new char[size]{})
 	{
-		this->size = size;
-		this->str = new char[size] {};
 		cout << "DefConstract:\t" << this << endl;
 	}
-	String(const char* str)
+	String(const char* str) :size(strlen(str) + 1), str(new char[size] {})
 	{
-		this->size = strlen(str) + 1;//Считаем размер строки
-		this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
-	String(const String& other)
+	String(const String& other) :size(other.size), str(new char[size] {})
 	{
 		//Deep copy
-		this->size = other.size;
-		this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstractor:" << this << endl;
 	}
-	String(String&& other)
+	String(String&& other):size(other.size),str(other.str)
 	{
-		this->size = other.size;
-		this->str = other.str; //Копируем указатель на уже выделенную пямять, принадлежащую другому объекту.
+		/*this->size = other.size;
+		this->str = other.str;*/ //Копируем указатель на уже выделенную пямять, принадлежащую другому объекту.
 		other.str = nullptr;   //Зануляем указатель в другом обьекте, 
 		                       //чтобы диструктор не смог удалить память, которая ему принадлежит.
 		other.size = 0;
